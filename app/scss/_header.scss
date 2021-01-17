@@ -1,5 +1,21 @@
-.header{
+.header {
+    &.open { // Animation on Hamburger menu click
+        .header__hamburger__menu {
+            > span:first-child {
+                transform: rotate(45deg);
+            }
+            > span:nth-child(2) {
+                opacity: 0;
+            }
+            > span:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
     nav {
+        position: relative;
+        background-color: $white;
         padding-top: 1.0625rem;
         padding-bottom: 1.0625rem;
     }
@@ -15,13 +31,14 @@
             transform: translateY(-3px);
         }
     }
-    &__hamburger__menu{ // Mobile Menu
+    &__hamburger__menu { // Mobile Menu
         > span {
             display: block;
             width: 26px;
             height: 2px;
             background-color: $darkBlue;
-
+            transition: all 300ms ease-in-out;
+            transform-origin: 4.9px 1px;
             &:not(:last-child){
                 margin-bottom: 4px;
             }
@@ -56,13 +73,39 @@
             }
         }
     }
-    &__cta{
+    &__cta {
         font-size: $font-small;
         font-weight: 400;
         color: $white;
         transition: opacity 300ms ease-in-out;
         &:hover {
             opacity: 0.75;
+        }
+    }
+
+    .overlay {
+        opacity: 0;
+        position: fixed;
+        top: 4.0625rem;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient($darkBlue, transparent);
+    }
+    &__menu{
+        position: absolute;
+        margin-top: 1.5rem;
+        padding: 1.625rem;
+        border-radius: 5px;
+        background-color: $white;
+        width: calc(100% - 3rem);
+        left: 50%;
+        transform: translateX(-50%);
+        a {
+            padding: 0.625rem;
+            display: block;
+            color: $darkBlue;
+            text-align: center;
         }
     }
 }
