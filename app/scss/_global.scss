@@ -26,10 +26,18 @@ a, a:hover, a:visited {
 
 // Button
 button, .button {
+    display: inline-block;
     font-size: $font-small;
     padding: 0.875rem 2.1875rem;
     background: linear-gradient(to right, $limeGreen, $brightCyan);
     border-radius: 50px;
+
+    font-weight: 400;
+    color: $white;
+    transition: opacity 300ms ease-in-out;
+    &:hover {
+        opacity: 0.75;
+    }
 }
 
 // Flex Box
@@ -61,4 +69,9 @@ button, .button {
     @include breakpoint-up(large) {
         display: none;
     }
+}
+
+// Headers
+h1, h2, h3 {
+    margin-top: 0;
 }
